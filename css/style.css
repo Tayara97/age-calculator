@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* ### Primary */
+
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+
+  /* ### Neutral */
+
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 800;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 800;
+}
+body {
+  font-family: Poppins;
+  background-color: var(--Off-white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+::-webkit-inner-spin-button {
+  appearance: none;
+}
+input {
+  font-size: 32px;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+main .box {
+  width: 375px;
+  background-color: var(--White);
+  border-radius: 1rem 1rem 6rem 1rem;
+  padding: 1.5rem;
+}
+main .box form {
+  position: relative;
+  margin: 1.5rem 0;
+}
+.box form::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: var(--Light-grey);
+  bottom: 0;
+}
+.box form .fields {
+  display: flex;
+  width: 100%;
+}
+.box form .fields .day-field,
+.box form .fields .month-field,
+.box form .fields .year-field {
+  width: 35%;
+  margin-right: 1rem;
+}
+.box form .fields .day-field label,
+.box form .fields .month-field label,
+.box form .fields .year-field label {
+  color: var(--Smokey-grey);
+  font-size: 12px;
+  font-weight: 700;
+}
+.box form .fields .day-field label.error-label,
+.box form .fields .month-field label.error-label,
+.box form .fields .year-field label.error-label {
+  color: var(--Light-red);
+}
+.box form .fields .day-field input,
+.box form .fields .month-field input,
+.box form .fields .year-field input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid var(--Light-grey);
+  border-radius: 0.5rem;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0.75rem;
+  caret-color: var(--Purple);
+  outline: none;
+}
+.box form .fields .day-field input:focus,
+.box form .fields .month-field input:focus,
+.box form .fields .year-field input:focus {
+  border-color: var(--Purple);
+}
+.box form .fields .day-field input.error-field,
+.box form .fields .month-field input.error-field,
+.box form .fields .year-field input.error-field {
+  border-color: var(--Light-red);
+}
+.box form .fields .day-field .error,
+.box form .fields .month-field .error,
+.box form .fields .year-field .error {
+  color: var(--Light-red);
+  font-size: 11px;
+  display: block;
+
+  margin-top: 5px;
+}
+
+.box form .btn {
+  background-color: var(--Purple);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25px;
+}
+.box form .btn img {
+  width: 25px;
+}
+
+.box .result .years-result,
+.box .result .months-result,
+.box .result .days-result {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 800;
+  height: 60px;
+  font-style: italic;
+}
+.box .result .years-result > span,
+.box .result .months-result > span,
+.box .result .days-result > span {
+  font-weight: 800;
+  font-size: 4rem;
+  color: var(--Purple);
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  main .box {
+    margin: 3rem auto;
+    width: 550px;
+    border-radius: 1rem 1rem 9rem 1rem;
+  }
+  main .box form {
+    margin: 1.5rem 0;
+  }
+  main .box form::before {
+    width: 90%;
+    bottom: 20%;
+  }
+  main .box form .fields {
+    width: 85%;
+  }
+  main .box form .btn {
+    bottom: 0;
+    left: 90%;
+  }
+  .box form .btn:hover {
+    background-color: var(--Off-black);
+    cursor: pointer;
+  }
+}
